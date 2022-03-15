@@ -16,5 +16,49 @@ namespace Metody10
         {
             InitializeComponent();
         }
+
+        private bool ObsahujeCislici (string retezec, out int cifSoucet, out int soucetLichCifer, out int soucetSudCifer)
+        {
+            bool obsahuje = false;
+            cifSoucet = 0;
+            soucetLichCifer = 0;
+            soucetSudCifer = 0;
+            
+            char[] poleCifer = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
+            for (int i = 0; i < retezec.Length; i++)
+            {
+                char znak = retezec[i];
+                if (poleCifer.Contains(znak))
+                {
+                    cifSoucet += znak;
+                    obsahuje = true;
+                    if (znak % 2 == 0)
+                    {
+                        soucetSudCifer += znak;
+                    }
+                    else
+                    {
+                        soucetLichCifer += znak;
+                    }
+                }
+            }
+            return obsahuje;
+        }
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string s = textBox1.Text;
+            int cifSoucet;
+            int soucetLichCifer;
+            int soucetSudCifer;
+            if (ObsahujeCislici(s, out cifSoucet, out soucetLichCifer, out soucetSudCifer))
+            {
+                MessageBox.Show("Ano obsahuje cislici, Soucet cifer je " + cifSoucet + ", Soucet lichych cifer je " + soucetLichCifer + ", Soucet sudych cifer je " + soucetSudCifer);
+            }
+            else
+            {
+                MessageBox.Show("Neobsahuje cislici");
+            }
+            
+        }
     }
 }
