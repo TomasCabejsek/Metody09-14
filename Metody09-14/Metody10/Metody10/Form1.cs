@@ -17,28 +17,29 @@ namespace Metody10
             InitializeComponent();
         }
 
-        private bool ObsahujeCislici (string retezec, out int cifSoucet, out int soucetLichCifer, out int soucetSudCifer)
+        private bool ObsahujeCislici(string retezec, out int cifSoucet, out int soucetLichCifer, out int soucetSudCifer)
         {
             bool obsahuje = false;
             cifSoucet = 0;
             soucetLichCifer = 0;
             soucetSudCifer = 0;
-            
-            char[] poleCifer = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
+
+            char[] poleCifer = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9'};
             for (int i = 0; i < retezec.Length; i++)
             {
                 char znak = retezec[i];
                 if (poleCifer.Contains(znak))
                 {
-                    cifSoucet += znak;
+                    int cifra = int.Parse(znak.ToString());
+                    cifSoucet += cifra;
                     obsahuje = true;
                     if (znak % 2 == 0)
                     {
-                        soucetSudCifer += znak;
+                        soucetSudCifer += cifra;
                     }
                     else
                     {
-                        soucetLichCifer += znak;
+                        soucetLichCifer += cifra;
                     }
                 }
             }
