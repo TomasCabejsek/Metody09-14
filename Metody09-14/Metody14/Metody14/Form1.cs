@@ -69,7 +69,7 @@ namespace Metody14
 
             if (Identicke(s, ss, out pocetOdl, out indexOdl))
             {
-                MessageBox.Show("Retezce jsou identicke " + indexOdl);
+                MessageBox.Show("Retezce jsou identicke");
             }
             else
             {
