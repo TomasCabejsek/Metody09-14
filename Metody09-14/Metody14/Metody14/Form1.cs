@@ -49,7 +49,7 @@ namespace Metody14
                 }
                 
             }
-            if (indexPrvniOdlisnosti == -1)
+            if (indexPrvniOdlisnosti == -1 && !identika)
             {
                 indexPrvniOdlisnosti = delka;
             }
@@ -69,7 +69,7 @@ namespace Metody14
 
             if (Identicke(s, ss, out pocetOdl, out indexOdl))
             {
-                MessageBox.Show("Retezce jsou identicke");
+                MessageBox.Show("Retezce jsou identicke " + indexOdl);
             }
             else
             {
